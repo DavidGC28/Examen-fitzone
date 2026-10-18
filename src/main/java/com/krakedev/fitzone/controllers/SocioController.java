@@ -1,7 +1,7 @@
-package com.krakdev.fitzone.controllers;
+package com.krakedev.fitzone.controllers;
 
-import com.krakdev.fitzone.services.ServicioSocio;
-import com.krakedev.fitzone.Socio;
+import com.krakedev.fitzone.entidades.Socio;
+import com.krakedev.fitzone.services.ServicioSocio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,6 @@ public class SocioController {
     @Autowired
     private ServicioSocio servicioSocio;
 
-
     @PostMapping
     public ResponseEntity<Socio> crearSocio(@RequestBody Socio socio) {
         try {
@@ -27,18 +26,16 @@ public class SocioController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
-
     
     @GetMapping
-    public ResponseEntity<List<com.krakedev.fitzone.entidades.Socio>> listarSocios() {
-        List<com.krakedev.fitzone.entidades.Socio> socios = servicioSocio.listar();
+    public ResponseEntity<List<Socio>> listarSocios() {
+        List<Socio> socios = servicioSocio.listar();
         return ResponseEntity.ok(socios);
     }
 
-
     @GetMapping("/estado")
-    public ResponseEntity<List<com.krakedev.fitzone.entidades.Socio>> buscarPorEstado(@RequestParam boolean activo) {
-        List<com.krakedev.fitzone.entidades.Socio> socios = servicioSocio.buscarPorEstado(activo);
+    public ResponseEntity<List<Socio>> buscarPorEstado(@RequestParam boolean activo) {
+        List<Socio> socios = servicioSocio.buscarPorEstado(activo);
         return ResponseEntity.ok(socios);
     }
 }

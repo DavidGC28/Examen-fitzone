@@ -5,12 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
-
-public interface SocioRepository extends JpaRepository<Socio, Long>{
-	
-	List<Socio> findByActivo(boolean activo);
-
-	com.krakedev.fitzone.Socio save(com.krakedev.fitzone.Socio s);
-	
+public interface SocioRepository extends JpaRepository<Socio, Long> {
+    
+    List<Socio> findByActivo(boolean activo);
+    
 }

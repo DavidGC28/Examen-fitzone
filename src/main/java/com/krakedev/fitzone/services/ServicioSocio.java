@@ -1,11 +1,10 @@
-package com.krakdev.fitzone.services;
+package com.krakedev.fitzone.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.krakedev.fitzone.Socio;
 import com.krakedev.fitzone.SocioRepository;
-
+import com.krakedev.fitzone.entidades.Socio;
 import java.util.List;
 
 @Service
@@ -21,11 +20,11 @@ public class ServicioSocio {
         return socioRepository.save(s);
     }
 
-    public List<com.krakedev.fitzone.entidades.Socio> listar() {
+    public List<Socio> listar() {
         return socioRepository.findAll();
     }
 
-    public List<com.krakedev.fitzone.entidades.Socio> buscarPorEstado(boolean activo) {
+    public List<Socio> buscarPorEstado(boolean activo) {
         return socioRepository.findByActivo(activo);
     }
 }
